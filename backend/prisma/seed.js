@@ -1,4 +1,5 @@
 const { prisma } = require("../lib/prisma");
+const bcrypt = require("bcryptjs");
 
 async function main() {
   // Create users
@@ -6,7 +7,7 @@ async function main() {
     data: {
       username: "alice",
       email: "alice@example.com",
-      passwordHashed: "hashedpassword1",
+      passwordHashed: await bcrypt.hash("123", 10),
       admin: true,
     },
   });
@@ -15,7 +16,7 @@ async function main() {
     data: {
       username: "bob",
       email: "bob@example.com",
-      passwordHashed: "hashedpassword2",
+      passwordHashed: await bcrypt.hash("456", 10),
       admin: false,
     },
   });
