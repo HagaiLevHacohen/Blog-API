@@ -37,7 +37,12 @@ const getPost = async (req, res, next) => {
     try {
         const post = await prisma.post.findUnique({
         where: {id: Number(req.params.postId), published: true},
-        include: { user: true, comments: true }
+        include: {
+          user: true,
+          comments: {
+            include: { user: true }
+          }
+        }
         });
 
         res.json(post);
@@ -50,7 +55,12 @@ const getPostAdmin = async (req, res, next) => {
     try {
         const post = await prisma.post.findUnique({
         where: {id: Number(req.params.postId)},
-        include: { user: true, comments: true }
+        include: {
+          user: true,
+          comments: {
+            include: { user: true }
+          }
+        }
         });
 
         res.json(post);
