@@ -1,6 +1,6 @@
 // routes/indexRouter.js
 const { Router } = require("express");
-const { postLogin, validateUser, postSignup, getUser } = require('../controllers/indexController');
+const { postLogin, validateUser, postSignup, getUser, getWelcome } = require('../controllers/indexController');
 const {verifyToken, isAdmin} = require('../middlewares/auth');
 
 const indexRouter = Router();
@@ -9,6 +9,7 @@ const indexRouter = Router();
 indexRouter.post("/login", postLogin);
 indexRouter.post("/signup", [validateUser, postSignup]);
 indexRouter.get("/user", verifyToken, getUser);
+indexRouter.get("/", getWelcome);
 
 
 

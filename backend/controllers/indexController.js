@@ -102,9 +102,14 @@ const getUser = async (req, res, next) => {
     }
 };
 
+const getWelcome = async (req, res, next) => {
+      res.json({message: "Welcome to the website. Backend initialized."});
+};
+
 module.exports = { 
                     postLogin,
                     postSignup,
                     validateUser,
                     getUser,
+                    getWelcome,
  };
