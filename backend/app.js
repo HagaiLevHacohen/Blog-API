@@ -6,6 +6,7 @@ const express = require("express");
 const path = require("node:path");
 const passport = require("passport");
 const configurePassport = require("./config/passport");
+const cors = require('cors');
 
 // Import Routers
 const indexRouter = require("./routes/indexRouter");
@@ -17,6 +18,7 @@ const commentsRouter = require("./routes/commentsRouter");
 
 // app setup
 const app = express();
+app.use(cors())
 
 // If deployed behind a proxy (Render, Heroku, Railway)
 if (process.env.NODE_ENV === "production") {
