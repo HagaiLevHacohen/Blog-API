@@ -54,7 +54,6 @@ const postSignup = async (req, res) => {
     return res.json({
       success: false,
       errors: errors.array(),
-      values: req.body,
     });
   }
 
