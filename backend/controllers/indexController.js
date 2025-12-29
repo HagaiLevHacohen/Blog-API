@@ -91,8 +91,20 @@ const postLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+const getUser = async (req, res, next) => {
+    try {
+        const user = await prisma.user.findUnique({
+        where: {id: req.userId},
+        });
+        res.json(user);
+    } catch (err) {
+        next(err);
+    }
+};
+
 module.exports = { 
                     postLogin,
                     postSignup,
                     validateUser,
+                    getUser,
  };
