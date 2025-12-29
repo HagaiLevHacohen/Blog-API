@@ -10,7 +10,9 @@ const jwt = require("jsonwebtoken");
 const getComments = async (req, res, next) => {
     try {
         const comments = await prisma.comment.findMany({
-        where: { postId: Number(req.params.postId) }
+        where: { postId: Number(req.params.postId)},
+        orderBy: {createdAt: "desc"},
+        include: {user: true}
         });
 
         res.json(comments);
@@ -42,15 +44,16 @@ const createComment = async (req, res, next) => {
 
     const { content } = matchedData(req);
 
-    await prisma.comment.create({
+    const newComment = await prisma.comment.create({
       data: {
         content,
         postId: Number(req.params.postId),
         userId: req.userId
-      }
+      },
+      include: { user: true }
     });
 
-    res.json({ success: true, message: "Comment created" });
+    res.json({ success: true, comment: newComment });
   } catch (err) {
     next(err);
   }
