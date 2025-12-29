@@ -1,0 +1,32 @@
+.card {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.card:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.title {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.meta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-disabled);
+}

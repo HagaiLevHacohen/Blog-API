@@ -26,16 +26,11 @@ const routes = [
       },
       {
         path: "posts",
-        children: [
-          {
-            index: true,
-            element: <Posts />,
-          },
-          {
-            path: ":postId",
-            element: <Post />,
-          },
-        ],
+        element: <Posts />,
+      },
+      {
+        path: "posts/:postId",
+        element: <Post />,
       },
     ],
   },

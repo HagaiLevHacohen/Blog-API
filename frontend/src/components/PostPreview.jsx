@@ -1,0 +1,26 @@
+import { Link } from "react-router-dom";
+import styles from "../styles/PostPreview.module.css";
+
+export default function PostPreview({ post }) {
+  const MAX_LENGTH = 200;
+
+  const previewText =
+    post.content && post.content.length > MAX_LENGTH
+      ? post.content.slice(0, MAX_LENGTH) + "..."
+      : post.content;
+
+  return (
+    <Link to={`/posts/${post.id}`} className={styles.card}>
+      <h3 className={styles.title}>{post.title}</h3>
+
+      <p className={styles.content}>
+        {previewText || "No content available."}
+      </p>
+
+      <div className={styles.meta}>
+        <span>By {post.user.username}</span>
+        <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+      </div>
+    </Link>
+  );
+}
