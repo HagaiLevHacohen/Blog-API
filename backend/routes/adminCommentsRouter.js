@@ -6,7 +6,7 @@ const {verifyToken, isAdmin} = require('../middlewares/auth');
 const adminCommentsRouter = Router({ mergeParams: true });
 
 // Routes - /admin/posts/:postId/comments
-adminCommentsRouter.get("/:commentId", verifyToken, isAdmin, deleteComment);
+adminCommentsRouter.delete("/:commentId", verifyToken, isAdmin, deleteComment);
 
 
 module.exports = adminCommentsRouter;
