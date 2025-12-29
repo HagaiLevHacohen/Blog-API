@@ -1,0 +1,52 @@
+.home {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-primary);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  animation: fadeIn 1.5s ease-out 0.5s both;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  animation: fadeIn 1.5s ease-out 1s both;
+}
+
+.button {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--accent-secondary);
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
