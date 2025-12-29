@@ -75,7 +75,7 @@ const postLogin = (req, res, next) => {
     if (err) return next(err);
 
     if (!user) {
-      return res.status(401).json({ error: info?.message || "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid credentials" });
     }
 
     // Sign the JWT
