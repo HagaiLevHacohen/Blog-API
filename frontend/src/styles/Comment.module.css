@@ -1,0 +1,30 @@
+.comment {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-muted);
+  margin-bottom: 1rem;
+  display: block;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+
+.content {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  white-space: normal;
+}
+
+.meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.author {
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+

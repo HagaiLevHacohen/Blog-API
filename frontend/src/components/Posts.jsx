@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import PostPreview from "./PostPreview";
 import styles from "../styles/Posts.module.css";
+import Loading from "./Loading";
+import Error from "./Error";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);

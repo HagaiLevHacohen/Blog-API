@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "./context/AuthContext";
 import styles from "../styles/Home.module.css";
 import "../index.css";
@@ -7,10 +7,11 @@ import Loading from "./Loading";
 import Error from "./Error";
 
 export default function Home() {
-  const { token, isLoggedIn } = useAuth();
+  const { token, isLoggedIn, logout } = useAuth();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(isLoggedIn);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -22,6 +23,10 @@ export default function Home() {
       },
     })
       .then((res) => {
+        if (res.status === 401) {
+          logout(); // token expired or invalid
+          navigate("/");
+        }
         if (!res.ok) throw new Error("Failed to fetch user");
         return res.json();
       })
