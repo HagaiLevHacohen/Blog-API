@@ -10,7 +10,8 @@ const getPosts = async (req, res, next) => {
     try {
         const posts = await prisma.post.findMany({
         where: { published: true },
-        include: { user: true }
+        include: { user: true },
+        orderBy: {createdAt: 'desc'}
         });
 
         res.json(posts);
@@ -23,7 +24,8 @@ const getPosts = async (req, res, next) => {
 const getPostsAdmin = async (req, res, next) => {
     try {
         const posts = await prisma.post.findMany({
-        include: { user: true }
+        include: { user: true },
+        orderBy: {createdAt: 'desc'}
         });
 
         res.json(posts);
