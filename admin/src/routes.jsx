@@ -24,7 +24,7 @@ const routes = [
         element: <NewPostForm />,
       },
       {
-        path: "posts/:postId",
+        path: "posts/:postId/edit",
         element: <Post />,
       },
     ],
