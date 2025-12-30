@@ -39,7 +39,7 @@ export default function Post() {
         const data = await res.json();
         setComments(data);
       } catch (err) {
-        console.error(err);
+        setError(err.message);
       } finally {
         setLoadingComments(false);
       }
