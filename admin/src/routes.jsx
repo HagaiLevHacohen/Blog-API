@@ -2,6 +2,7 @@ import App from "./components/App.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Posts from "./components/Posts.jsx";
 import Post from "./components/Post.jsx";
+import NewPostForm from "./components/NewPostForm.jsx";
 import Login from "./components/Login.jsx";
 
 const routes = [
@@ -17,6 +18,10 @@ const routes = [
       {
         path: "posts",
         element: <Posts />,
+      },
+      {
+        path: "posts/new",
+        element: <NewPostForm />,
       },
       {
         path: "posts/:postId",

@@ -10,7 +10,7 @@ export default function PostPreview({ post }) {
       : post.content;
 
   return (
-    <Link to={`/posts/${post.id}`} className={styles.card}>
+    <Link to={`/posts/${post.id}/edit`} className={styles.card}>
       <div className={styles.header}>
         <h3 className={styles.title}>{post.title}</h3>
 
