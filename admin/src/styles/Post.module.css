@@ -1,0 +1,49 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.content {
+  color: var(--text-primary);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  margin-bottom: 3rem;
+}
+
+.commentsSection {
+  border-top: 1px solid var(--border-default);
+  padding-top: 1.5rem;
+}
+
+.commentsSection h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.noComments {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.state {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem;
+}

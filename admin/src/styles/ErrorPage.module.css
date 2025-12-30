@@ -1,0 +1,23 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container > button {
+  width: 200px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: rgb(47, 142, 252);
+  transition: transform 0.2s ease-in-out;
+}
+
+.container > button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

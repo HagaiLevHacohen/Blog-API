@@ -1,0 +1,11 @@
+.error {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-danger);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-danger);
+  text-align: center;
+  font-weight: 500;
+  margin: 2rem auto;
+  max-width: 400px;
+}

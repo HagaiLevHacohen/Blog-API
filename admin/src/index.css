@@ -1,0 +1,51 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #0f1115;   /* main background */
+  --bg-secondary: #161a20; /* cards, surfaces */
+  --bg-tertiary: #1f2430;  /* hover, elevated */
+
+  /* Text */
+  --text-primary: #e6eaf2; /* main text */
+  --text-secondary: #aab1c2; /* muted text */
+  --text-disabled: #6b7280;
+
+  /* Accent / Brand */
+  --accent-primary: #7aa2f7; /* blue */
+  --accent-secondary: #9ece6a; /* green */
+  --accent-warning: #e0af68; /* yellow */
+  --accent-danger: #f7768e; /* red */
+
+  /* Borders & Dividers */
+  --border-default: #2a2f3a;
+  --border-muted: #202432;
+
+  /* States */
+  --focus-ring: #7aa2f7;
+  --overlay: rgba(15, 17, 21, 0.8);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-bg);
+
+  display: flex;
+  flex-direction: column;
+}

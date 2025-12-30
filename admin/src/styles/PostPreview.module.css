@@ -1,0 +1,67 @@
+.card {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.card:hover {
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+/* --- Header (title + status) --- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.title {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* --- Status badge --- */
+
+.status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.published {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: var(--success, #2ecc71);
+}
+
+.unpublished {
+  background-color: rgba(241, 196, 15, 0.15);
+  color: var(--warning, #f1c40f);
+}
+
+/* --- Content --- */
+
+.content {
+  margin-top: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --- Meta --- */
+
+.meta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-disabled);
+}
