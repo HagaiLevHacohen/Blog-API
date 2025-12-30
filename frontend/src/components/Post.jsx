@@ -4,7 +4,7 @@ import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import styles from "../styles/Post.module.css";
 import Loading from "./Loading";
-import Error from "./Error";
+import ErrorMessage from "./ErrorMessage";
 
 export default function Post() {
   const { postId } = useParams();
@@ -52,7 +52,7 @@ export default function Post() {
   };
 
   if (loadingPost) return <Loading />;
-  if (error) return <Error message={error} />;
+  if (error) return <ErrorMessage message={error} />;
   if (!post) return null;
 
   return (

@@ -4,7 +4,7 @@ import { useAuth } from "./context/AuthContext";
 import styles from "../styles/Home.module.css";
 import "../index.css";
 import Loading from "./Loading";
-import Error from "./Error";
+import ErrorMessage from "./ErrorMessage";
 
 export default function Home() {
   const { token, isLoggedIn, logout } = useAuth();
@@ -33,10 +33,10 @@ export default function Home() {
       .then((data) => setUser(data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
-  }, [isLoggedIn, token]);
+  }, [isLoggedIn, token, logout, navigate]);
 
   if (loading) return <Loading />;
-  if (error) return <Error message={error.message} />;
+  if (error) return <ErrorMessage message={error.message} />;
 
   return (
     <div className={styles.home}>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PostPreview from "./PostPreview";
 import styles from "../styles/Posts.module.css";
 import Loading from "./Loading";
-import Error from "./Error";
+import ErrorMessage from "./ErrorMessage";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -27,7 +27,7 @@ export default function Posts() {
   }, []);
 
   if (loading) return <Loading />;
-  if (error) return <Error message={error.message} />;
+  if (error) return <ErrorMessage message={error.message} />;
 
   return (
     <div className={styles.container}>
