@@ -20,6 +20,9 @@ function App() {
             Nightlog
           </Link>
           <div className={styles.links}>
+            <Link to="/posts" className={styles.link}>
+              Posts
+            </Link>
             {!isLoggedIn && (
               <Link to="/" className={styles.link}>
                 Login
