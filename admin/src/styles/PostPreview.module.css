@@ -1,67 +1,81 @@
+.cardWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 .card {
-  display: block;
-  padding: 1.25rem;
-  border-radius: 8px;
+  flex: 1;
+  padding: 1rem;
   background-color: var(--bg-secondary);
+  border-radius: 8px;
   border: 1px solid var(--border-default);
+  color: var(--text-primary);
   text-decoration: none;
-  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .card:hover {
   background-color: var(--bg-tertiary);
-  transform: translateY(-2px);
 }
-
-/* --- Header (title + status) --- */
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
 }
 
 .title {
-  color: var(--text-primary);
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-/* --- Status badge --- */
-
 .status {
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  white-space: nowrap;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .published {
-  background-color: rgba(46, 204, 113, 0.15);
-  color: var(--success, #2ecc71);
+  background-color: var(--accent-secondary);
+  color: var(--bg-primary);
 }
 
 .unpublished {
-  background-color: rgba(241, 196, 15, 0.15);
-  color: var(--warning, #f1c40f);
+  background-color: var(--accent-warning);
+  color: var(--bg-primary);
 }
-
-/* --- Content --- */
 
 .content {
-  margin-top: 0.75rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
-/* --- Meta --- */
-
 .meta {
-  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
-  color: var(--text-disabled);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.deleteButton {
+  padding: 0.3rem 0.6rem;
+  background-color: var(--accent-danger);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  align-self: flex-start;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.deleteButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }

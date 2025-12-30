@@ -14,11 +14,10 @@ export default function Posts() {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setLoading(true);
       try {
-        const res = await fetch("http://localhost:3000/admin/posts",{
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        const res = await fetch("http://localhost:3000/admin/posts", {
+          headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch posts");
         const data = await res.json();
@@ -30,9 +29,24 @@ export default function Posts() {
         setLoading(false);
       }
     };
-
     fetchPosts();
   }, [token]);
+
+  const handleDelete = async (postId) => {
+    if (!window.confirm("Are you sure you want to delete this post?")) return;
+
+    try {
+      const res = await fetch(`http://localhost:3000/admin/posts/${postId}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok) throw new Error("Failed to delete post");
+      // Remove deleted post from state
+      setPosts((prev) => prev.filter((p) => p.id !== postId));
+    } catch (err) {
+      alert(err.message);
+    }
+  };
 
   if (loading) return <Loading />;
   if (error) return <ErrorMessage message={error} />;
@@ -52,7 +66,11 @@ export default function Posts() {
           <p className={styles.state}>No posts available.</p>
         ) : (
           posts.map((post) => (
-            <PostPreview key={post.id} post={post} />
+            <PostPreview
+              key={post.id}
+              post={post}
+              onDelete={() => handleDelete(post.id)}
+            />
           ))
         )}
       </div>

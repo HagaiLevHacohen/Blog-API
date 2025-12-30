@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/PostPreview.module.css";
 
-export default function PostPreview({ post }) {
+export default function PostPreview({ post, onDelete }) {
   const MAX_LENGTH = 200;
 
   const previewText =
@@ -10,27 +10,33 @@ export default function PostPreview({ post }) {
       : post.content;
 
   return (
-    <Link to={`/posts/${post.id}/edit`} className={styles.card}>
-      <div className={styles.header}>
-        <h3 className={styles.title}>{post.title}</h3>
+    <div className={styles.cardWrapper}>
+      <Link to={`/posts/${post.id}/edit`} className={styles.card}>
+        <div className={styles.header}>
+          <h3 className={styles.title}>{post.title}</h3>
 
-        <span
-          className={`${styles.status} ${
-            post.published ? styles.published : styles.unpublished
-          }`}
-        >
-          {post.published ? "Published" : "Unpublished"}
-        </span>
-      </div>
+          <span
+            className={`${styles.status} ${
+              post.published ? styles.published : styles.unpublished
+            }`}
+          >
+            {post.published ? "Published" : "Unpublished"}
+          </span>
+        </div>
 
-      <p className={styles.content}>
-        {previewText || "No content available."}
-      </p>
+        <p className={styles.content}>
+          {previewText || "No content available."}
+        </p>
 
-      <div className={styles.meta}>
-        <span>By {post.user.username}</span>
-        <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-      </div>
-    </Link>
+        <div className={styles.meta}>
+          <span>By {post.user.username}</span>
+          <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+        </div>
+      </Link>
+
+      <button className={styles.deleteButton} onClick={onDelete}>
+        Delete
+      </button>
+    </div>
   );
 }
