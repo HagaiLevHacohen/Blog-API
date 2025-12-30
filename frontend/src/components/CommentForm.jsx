@@ -20,7 +20,7 @@ export default function CommentForm({ postId, onCommentCreated }) {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3000/posts/${postId}/comments`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/posts/${postId}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

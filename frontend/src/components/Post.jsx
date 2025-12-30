@@ -18,7 +18,7 @@ export default function Post() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/posts/${postId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/posts/${postId}`);
         if (!res.ok) throw new Error("Post not found");
         const data = await res.json();
         setPost(data);
@@ -35,7 +35,7 @@ export default function Post() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/posts/${postId}/comments`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/posts/${postId}/comments`);
         const data = await res.json();
         setComments(data);
       } catch (err) {

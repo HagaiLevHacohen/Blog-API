@@ -17,7 +17,7 @@ export default function Home() {
     if (!isLoggedIn) return;
 
     setLoading(true);
-    fetch("http://localhost:3000/user", {
+    fetch(`${import.meta.env.VITE_API_URL}/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

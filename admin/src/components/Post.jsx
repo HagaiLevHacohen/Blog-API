@@ -22,7 +22,7 @@ export default function Post() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/admin/posts/${postId}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/posts/${postId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Post not found");
@@ -41,7 +41,7 @@ export default function Post() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/posts/${postId}/comments`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/posts/${postId}/comments`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to load comments");
@@ -63,7 +63,7 @@ export default function Post() {
     setSaving(true);
 
     try {
-      const res = await fetch(`http://localhost:3000/admin/posts/${postId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/posts/${postId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ export default function Post() {
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/admin/posts/${postId}/comments/${commentId}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/posts/${postId}/comments/${commentId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
