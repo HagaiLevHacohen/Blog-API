@@ -6,6 +6,7 @@ const express = require("express");
 const path = require("node:path");
 const passport = require("passport");
 const configurePassport = require("./config/passport");
+const errorHandler = require("./errors/errorHandler");
 const cors = require('cors');
 
 // Import Routers
@@ -42,6 +43,9 @@ app.use("/posts", postsRouter);
 app.use("/admin/posts", adminPostsRouter);
 app.use("/posts/:postId/comments", commentsRouter);
 app.use("/admin/posts/:postId/comments", adminCommentsRouter);
+
+// ------- Error handler -------
+app.use(errorHandler);
 
 
 

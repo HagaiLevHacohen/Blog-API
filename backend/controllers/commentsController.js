@@ -1,11 +1,7 @@
 // controllers/commentsController.js
 
 const { body, validationResult, matchedData } = require("express-validator");
-const bcrypt = require("bcryptjs");
-const passport = require("passport");
-const CustomNotFoundError = require("../errors/CustomNotFoundError");
 const { prisma } = require("../lib/prisma");
-const jwt = require("jsonwebtoken");
 
 const getComments = async (req, res, next) => {
     try {
